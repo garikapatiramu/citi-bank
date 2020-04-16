@@ -1,14 +1,6 @@
-pipeline{
+pipel
     agent any
     stages{
-        stage ("git checkout")
-        {
-        steps{
-            git branch:'develop',
-            credentialsId: 'github', 
-            url: 'https://github.com/garikapatiramu/citi-bank'
-        }
-        }
         stage (" maven package and  nexus deploy")
         {
         steps{
@@ -18,7 +10,14 @@ pipeline{
         stage ("Tomact-dev")
         {
         steps{
-          echo "need to deploy the file in tomcat"
+          sshagent(['tomcat']) {
+         
+                sshagent(['tomcat-dev']) {
+                    // copy war file to tomcat dev
+                    sh "scp -o StrictHostKeyChecking=no  target/car-rentals*.war  ec2-user@172.31.36.236172.31.36.236:/opt/tomcat8/webapps/"
+                    sh "ssh ec2-user@172.31.36.236 service tomcat stop"
+                    sh "ssh ec2-user@172.31.36.236 service tomcat start"
+}
         }
         }
         }
