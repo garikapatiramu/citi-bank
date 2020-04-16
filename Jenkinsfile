@@ -1,4 +1,4 @@
-pipel
+pipeline{
     agent any
     stages{
         stage (" maven package and  nexus deploy")
@@ -14,7 +14,7 @@ pipel
          
                 sshagent(['tomcat-dev']) {
                     // copy war file to tomcat dev
-                    sh "scp -o StrictHostKeyChecking=no  target/car-rentals*.war  ec2-user@172.31.36.236172.31.36.236:/opt/tomcat8/webapps/"
+                    sh "scp -o StrictHostKeyChecking=no  target/citi-bank*.war  ec2-user@172.31.36.236172.31.36.236:/opt/tomcat8/webapps/"
                     sh "ssh ec2-user@172.31.36.236 service tomcat stop"
                     sh "ssh ec2-user@172.31.36.236 service tomcat start"
 }
