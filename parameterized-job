@@ -8,7 +8,7 @@ pipeline{
         stage (" maven package")
         {
         steps{
-          echo " we build the ${params.branchName}"
+          echo " we build the ${params.branchName} branch"
         }
         }
         stage ("Tomact-dev")
