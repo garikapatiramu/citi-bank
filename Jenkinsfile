@@ -1,3 +1,4 @@
+currentBuild.displayName="${currentBuild.projectName}-#{currentBuild.number}"
 pipeline{
     agent any
 	environment {
@@ -26,8 +27,8 @@ pipeline{
         }
 	   post {
       failure {
-          mail body: "Hi Developer, Your ${env.JOB_NAME} Job failed, This is your build URL ${env.BUILD_URL}",
-            subject: "${env.JOB_NAME} - Failed", 
+          mail body: "Hi Developer, Your ${env.JOB_NAME} Job failed and your build URL is mentioned ${env.BUILD_URL}",
+            subject: "${env.JOB_NAME} - Failed use the below url", 
              to: 'garikapatiramu@gmail.com'
       }
     }
