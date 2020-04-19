@@ -27,15 +27,9 @@ pipeline{
 		
 		post {
   failure {
-    // One or more steps need to be included within each condition's block.
-	////echo "send email notifications
-	mail bcc: '',
-	body: '''Hi developer your build failed and your job failed.''', 
-	cc: '',
-	from: '',
-	replyTo: '',
-	subject: 'job failed',
-	to: 'garikapatiramu@gmail.com'
+   	mail body: "Hi developer your build failed and your job failed.", 
+	subject: "job failed",
+	to: 'garikapatiramu@gmail.com' 
   }
 }
 }
