@@ -9,7 +9,7 @@ pipeline{
         stage (" maven package and  nexus deploy")
         {
         steps{
-          sh script: 'mvn clean deploy ramu'
+          sh script: 'mvn clean deploy'
         }
         }
         stage ("Tomact-dev")
@@ -17,7 +17,7 @@ pipeline{
         steps{
           sshagent(['tomcat']) {
           // copy citi bank war file to tomcat server
-          sh "scp -o StrictHostKeyChecking=no  target/citi-bank.war ${TOMCAT_HOST}:/opt/tomcat8/webapps/"
+          sh "scp -o StrictHostKeyChecking=no  target/citi-bank.war ${TOMCAT_HOST}:/opt/tomcat8/webapp"
           sh "ssh ${TOMCAT_HOST} ${TOMCAT_SVC} stop"
           sh "ssh ${TOMCAT_HOST} ${TOMCAT_SVC} start"
 }
