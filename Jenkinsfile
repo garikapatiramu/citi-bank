@@ -9,7 +9,7 @@ pipeline{
         stage (" maven package and  nexus deploy")
         {
         steps{
-          sh script: 'mvn clean deploy'
+          sh script: 'mvn clean deploy ramu'
         }
         }
         stage ("Tomact-dev")
@@ -24,4 +24,11 @@ pipeline{
         }
         }
         }
+		
+		post {
+  failure {
+    // One or more steps need to be included within each condition's block.
+	echo "send email notifications"
+  }
+}
 }
