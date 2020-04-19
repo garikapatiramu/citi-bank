@@ -1,3 +1,4 @@
+currentBuild.displayName="${currentBuild.projectName}-#${currentBuild.number}"
 pipeline{
     agent any
 	parameters {
@@ -8,15 +9,17 @@ pipeline{
         stage (" maven package")
         {
         steps{
+		  sh "git checkout ${params.branchName}"
           echo " we build the ${params.branchName} branch"
         }
         }
-        stage ("Tomact-dev")
+        stage ("Tomact deploy")
         {
         steps{
          
           // copy citi bank war file to tomcat server
-		   echo " we are deploying to ${params.branchName} enviroment"
+		   echo " we are deploying to ${params.deployEnv} enviroment"
          }
         }
+	  }
 	  }
