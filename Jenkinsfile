@@ -27,9 +27,9 @@ pipeline{
 		
 		post {
   failure {
-   	mail body: "Hi developer your build failed and your job failed.", 
+   	mail body: "Hi developer your build failed and your job failed", 
 	subject: "job failed",
-	to: 'garikapatiramu@gmail.com' 
+	to: 'garikapatira123@gmail.com' 
   }
 }
 }
