@@ -10,7 +10,7 @@ pipeline{
         stage (" maven package and  nexus deploy")
         {
         steps{
-          sh script: 'mvn clean deploy ra'
+          sh script: 'mvn clean deploy'
         }
         }
         stage ("Tomact-dev")
