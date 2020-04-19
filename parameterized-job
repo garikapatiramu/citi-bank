@@ -1,0 +1,25 @@
+pipeline{
+    agent any
+	parameters {
+  choice choices: ['dev', 'release', 'prod'], description: 'display the app  env to deploy', name: 'deployEnv'
+  choice choices: ['develop', 'release', 'master'], description: 'choose the branch to display', name: 'branchName'
+}
+
+	stages{
+        stage (" maven package")
+        {
+        steps{
+          echo " we build the ${params.branchName}"
+        }
+        }
+        stage ("Tomact-dev")
+        {
+        steps{
+          sshagent(['tomcat']) {
+          // copy citi bank war file to tomcat server
+		   echo " we build the ${params.branchName}"
+          
+        }
+        }
+        }
+	  }
