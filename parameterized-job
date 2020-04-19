@@ -17,9 +17,8 @@ pipeline{
         steps{
           sshagent(['tomcat']) {
           // copy citi bank war file to tomcat server
-		   echo " we build the ${params.branchName}"
-          
-        }
+		   echo " we are deploying to ${params.branchName} enviroment"
+                  }
         }
         }
 	  }
