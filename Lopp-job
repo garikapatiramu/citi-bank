@@ -1,0 +1,15 @@
+currentBuild.displayName="${currentBuild.projectName}-#${currentBuild.number}"
+pipeline {
+    agent any
+    stages {
+        stage('loop') {
+            steps {
+                script {
+                    5.times {
+                        echo "Hi hello world"
+                    }
+                }
+            }
+        }
+    }
+}
