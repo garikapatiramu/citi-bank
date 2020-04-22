@@ -7,6 +7,7 @@ pipeline{
       choice choices: ['dev',  'stg', 'prod'], description: 'Choose the app env to deploy', name: 'deployEnv'
       choice choices: ['develop', 'release', 'master'], description: 'Choose the branch to deploy', name: 'branchName'
     }
+    }
     
     stages{
         
