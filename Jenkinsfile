@@ -30,6 +30,7 @@ pipeline{
           mail body: "Hi Developer, Your ${env.JOB_NAME} Job failed and your build URL is mentioned ${env.BUILD_URL}",
             subject: "${env.JOB_NAME} - Failed use the below url", 
              to: 'garikapatiramu@gmail.com'
+	      
       }
     }
     
