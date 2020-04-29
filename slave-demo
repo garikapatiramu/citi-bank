@@ -1,0 +1,16 @@
+pipeline {
+    agent
+    {
+        label 'Slave-one'
+            }
+            
+            stages{
+            stage('Demo') {
+                steps {
+                    echo "welcome to master slave"
+                 
+                }   
+                }
+                
+            }
+}
