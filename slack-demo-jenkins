@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage('Maven Package and Nexus Deploy'){
             steps{
-                sh script: 'mvn clean hari'
+                sh script: 'mvn clean'
             }
         }
         
