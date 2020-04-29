@@ -12,9 +12,9 @@ pipeline{
     }
     post {
       failure {
-          slackSend channel: 'hari-devops', 
+          slackSend channel: 'development', 
                     message: "Hi Developer, Your ${env.JOB_NAME} Job failed, This is your build URL ${env.BUILD_URL}", 
-                    teamDomain: 'javahomecloud', 
+                    teamDomain: 'devopps2020', 
                     tokenCredentialId: 'slack-three'
       }
     }
