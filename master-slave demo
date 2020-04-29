@@ -15,7 +15,7 @@ pipeline{
         
         stage('Demo2'){
             agent {
-                label 'slave-one'
+                label 'Slave-one'
             }
             steps{
                unstash 'mysrc'
