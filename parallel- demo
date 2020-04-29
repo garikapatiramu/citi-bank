@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    stages {
+      stage('run-parallel-branches') { 
+          steps {
+            parallel(
+              dbbuild: {
+                echo "maven build"
+              },
+              appbuild: {
+                echo "Sonar analysis"
+              }
+            )
+          }
+        }
+    
+    }
+}
