@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    stages {
+        stage ('git checkout'){
+            steps {
+         git url: 'https://github.com/garikapatiramu/citi-bank',
+         branch: 'develop'
+        }
+        }
+         
+      stage('build sonar') { 
+          steps {
+            parallel(
+              sonarpublish: {
+                withSonarQubeEnv('sonar7') {
+                sh 'mvn clean package sonar:sonar'
+              }
+              },
+              appbuild: {
+                echo "Sonar analysis"
+              }
+            )
+          }
+        }
+    
+    }
+}
