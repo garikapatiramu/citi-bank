@@ -11,7 +11,7 @@ pipeline{
     stage ('calc'){
             steps{
                 script {
-                    javahome()
+                    javahome()    // this is implictly callin call function.
                     javahome.add 10,20
                     javahome.sub 20,10
                 }
