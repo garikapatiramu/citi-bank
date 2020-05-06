@@ -1,0 +1,22 @@
+@Library('java-home-lib') _
+pipeline{
+    agent any
+    stages{
+        stage ('Demo'){
+            steps{
+                sayHello "hari"
+                
+            }
+        }
+    stage ('calc'){
+            steps{
+                script {
+                    javahome()
+                    javahome.add 10,20
+                    javahome.sub 20,10
+                }
+                
+            }
+        }
+}
+}
