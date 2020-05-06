@@ -1,0 +1,12 @@
+@Library('java-home-lib') _
+pipeline{
+    agent any
+    stages{
+        stage ('Demo'){
+            steps{
+                sayHello "hari"
+                
+            }
+        }
+    }
+}
