@@ -10,7 +10,7 @@ stage('build and test delopy to dev'){
 when {
        branch 'develop'
       }
-Steps {
+Steps{
 echo "delopy into development enviroment"
 }
 }
@@ -18,7 +18,7 @@ stage('depoy to release'){
 when {
       branch 'release'
       }
-Steps {
+Steps{
 echo " deploy into release enviroment"
 }
 }
@@ -26,7 +26,7 @@ stage('deploy to master'){
 when {
        branch 'master'
      }
-Steps {
+Steps{
 echo "deploy into production enviroment"
 }
 }
