@@ -6,7 +6,7 @@ Steps {
 sh "mvn clean package"
 }
 }
-stage ('build and test dev delopy'){
+stage ('build and test delopy to dev'){
 when {
        branch 'develop'
       }
@@ -14,7 +14,7 @@ Steps {
 echo "delopy into development enviroment"
 }
 }
-stage ('build and test release branch'){
+stage ('depoy to release'){
 when {
       branch 'release'
       }
@@ -22,12 +22,12 @@ Steps {
 echo " deploy into release enviroment"
 }
 }
-stage ('build and test master branch'){
+stage ('deploy to master'){
 when {
        branch 'master'
      }
 Steps {
-echo "build deploy into production enviroment"
+echo "deploy into production enviroment"
 }
 }
 }
