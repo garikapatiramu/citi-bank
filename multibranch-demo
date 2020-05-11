@@ -1,34 +1,35 @@
 pipeline{
-agent any
-stages {
-stage('Maven Build'){
-Steps {
-sh "mvn clean package"
-}
-}
-stage('build and test delopy to dev'){
-when {
-       branch 'develop'
+  agent any
+  stages{
+    stage('Maven Build'){
+      steps{
+        sh "mvn clean package"
       }
-Steps{
-echo "delopy into development enviroment"
-}
-}
-stage('depoy to release'){
-when {
-      branch 'release'
+    }
+    stage('Dev and Test Deploy'){
+      when {
+        branch 'develop'
       }
-Steps{
-echo " deploy into release enviroment"
+      steps{
+        echo "deploying to develop environment"
+      }
+    }
+    stage('Deploy to Release'){
+      when {
+        branch 'release'
+      }
+      steps{
+        echo "deploying to release environment"
+      }
+    }
+    stage('Deploy to Production'){
+      when {
+        branch 'master'
+      }
+      steps{
+        echo "deploying to production environment"
+      }
+    }
+  }
 }
-}
-stage('deploy to master'){
-when {
-       branch 'master'
-     }
-Steps{
-echo "deploy into production enviroment"
-}
-}
-}
-}
+© 2020 GitHub, Inc.
