@@ -1,12 +1,12 @@
 pipeline{
 agent any
 stages {
-stage ('Maven Build'){
+stage('Maven Build'){
 Steps {
 sh "mvn clean package"
 }
 }
-stage ('build and test delopy to dev'){
+stage('build and test delopy to dev'){
 when {
        branch 'develop'
       }
@@ -14,7 +14,7 @@ Steps {
 echo "delopy into development enviroment"
 }
 }
-stage ('depoy to release'){
+stage('depoy to release'){
 when {
       branch 'release'
       }
@@ -22,7 +22,7 @@ Steps {
 echo " deploy into release enviroment"
 }
 }
-stage ('deploy to master'){
+stage('deploy to master'){
 when {
        branch 'master'
      }
